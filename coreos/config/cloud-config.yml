@@ -1,0 +1,10 @@
+#cloud-config
+
+hostname: "nas"
+
+users:
+  - name: "nas"
+    passwd: "$1$LZOElXOJ$sqPEuqdiZRlYr5Iy.mQLO/"
+    groups:
+      - "sudo"
+      - "docker"

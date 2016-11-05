@@ -8,3 +8,8 @@ users:
     groups:
       - "sudo"
       - "docker"
+
+coreos:
+  units:
+    - name: sshd.service
+    command: start

@@ -24,8 +24,8 @@ coreos:
         [Service]
         TimeoutStartSec=0
         Environment=SERVICE_NAME=shellinabox
-        ExecStartPre=/usr/bin/docker kill $SERVICE_NAME
-        ExecStartPre=/usr/bin/docker rm $SERVICE_NAME
+        ExecStartPre=/usr/bin/docker kill $SERVICE_NAME || true
+        ExecStartPre=/usr/bin/docker rm $SERVICE_NAME || true
         ExecStartPre=/usr/bin/docker pull fhuegli/shellinabox
         ExecStart=/usr/bin/docker run --name $SERVICE_NAME -p 10022:4200 --add-host="nas:172.17.0.1" -e SIAB_SERVICE="/:SSH:nas" fhuegli/shellinabox
         ExecStop=/usr/bin/docker stop $SERVICE_NAME
